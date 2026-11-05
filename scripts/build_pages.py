@@ -76,15 +76,12 @@ def footer(zh):
     if zh:
         a = '本站为独立工具。目前由 <a href="https://tryallapi.com/?aff=5A6A" rel="noopener">TryAllAPI</a> 上的 GPT Images 2.6 生成透明图集；切图、加字、动作和 GIF 编码在你的浏览器里完成。与 OpenAI、微信/腾讯无关联。'
         b = '导出器移植自 <a href="https://github.com/WoYun520/pixel-gif-sticker-pack" rel="noopener">pixel-gif-sticker-pack</a>（MIT 许可，© 2026 WoYun520），示例画廊的 GIF 也来自该项目。<a href="/licenses.txt">许可证与第三方声明</a>'
-        more = '更多：'
     else:
         a = 'GIF Sticker Pack AI is an independent tool. Atlases are currently drawn by GPT Images 2.6 via <a href="https://tryallapi.com/?aff=5A6A" rel="noopener">TryAllAPI</a>; slicing, captions, motion and GIF encoding run in your browser. Not affiliated with OpenAI, WeChat or Tencent.'
         b = 'Exporter ported from <a href="https://github.com/WoYun520/pixel-gif-sticker-pack" rel="noopener">pixel-gif-sticker-pack</a> (MIT License, © 2026 WoYun520); the gallery GIFs come from that project too. <a href="/licenses.txt">Licenses &amp; notices</a>'
-        more = 'More: '
     return f"""<footer>
   <div>{a}</div>
   <div>{b}</div>
-  <div>{more}<a href="https://gptimage2.asia/models/gpt-images-2.6" rel="noopener">GPT Images 2.6 model page</a> · <a href="https://maynor996.github.io/images-2-6-svg-gif-guide/" rel="noopener">Images 2.6 SVG &amp; GIF guide</a> · <a href="https://svg-logo-ai.bgnwd15.workers.dev/" rel="noopener">SVG Logo AI</a> · <a href="https://trymodel.chat/" rel="noopener">TryModel Chat</a></div>
   <div class="badges">
     <a href="https://findaifor.me/?utm_source=gif-sticker-pack-ai&amp;utm_medium=badge&amp;utm_campaign=footer" target="_blank" rel="noopener"><img src="https://findaifor.me/badge/featured.svg" alt="Featured on FindAIForMe" loading="lazy" height="40"></a>
 </div>
