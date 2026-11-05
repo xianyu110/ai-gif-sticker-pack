@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "gif-sticker-pack-ai",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-11-01",
+  "account_id": "YOUR_ACCOUNT_ID",
+  "workers_dev": true,
+  "observability": { "enabled": true },
+  "assets": { "binding": "ASSETS", "directory": "./public", "run_worker_first": ["/api/*"], "html_handling": "auto-trailing-slash" },
+  "durable_objects": { "bindings": [{ "name": "QUOTA", "class_name": "Quota" }] },
+  "migrations": [{ "tag": "v1-quota", "new_sqlite_classes": ["Quota"] }],
+  "vars": {
+    "PROVIDER": "tryallapi",
+    "TRYALLAPI_BASE": "https://tryallapi.com",
+    "TRYALLAPI_MODEL": "gpt-image-2.6-flare",
+    "ATLAS_QUALITY": "medium",
+    "DAILY_PER_IP": "3",
+    "DAILY_GLOBAL": "150"
+  }
+}

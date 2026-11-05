@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>微信表情包生成 · AI 表情包制作器 — 一张角色图生成 16 个透明 GIF 动图</title>
+<meta name="description" content="上传你的角色形象，选聊天场景模板、改文字，AI 画出 4×4 透明动作图集，浏览器自动切图、加描边文字和动作，导出 320×320 透明循环 GIF 表情包和整包 ZIP。每天免费试用。">
+<link rel="canonical" href="https://gif-sticker-pack-ai.bgnwd15.workers.dev/zh/">
+<link rel="alternate" hreflang="en" href="https://gif-sticker-pack-ai.bgnwd15.workers.dev/">
+<link rel="alternate" hreflang="zh-CN" href="https://gif-sticker-pack-ai.bgnwd15.workers.dev/zh/">
+<link rel="alternate" hreflang="x-default" href="https://gif-sticker-pack-ai.bgnwd15.workers.dev/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website"><meta property="og:title" content="微信表情包生成 · AI 表情包制作器 — 一张角色图生成 16 个透明 GIF 动图"><meta property="og:description" content="上传你的角色形象，选聊天场景模板、改文字，AI 画出 4×4 透明动作图集，浏览器自动切图、加描边文字和动作，导出 320×320 透明循环 GIF 表情包和整包 ZIP。每天免费试用。">
+<meta property="og:url" content="https://gif-sticker-pack-ai.bgnwd15.workers.dev/zh/"><meta property="og:image" content="https://gif-sticker-pack-ai.bgnwd15.workers.dev/og.png"><meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#fbf8ff;--fg:#221a33;--mut:#6b6280;--card:#fff;--line:#e7e0f3;--acc:#7c4dff;--acc2:#ff6fa8}
+[hidden]{display:none!important}*{box-sizing:border-box}body{margin:0;font:16px/1.6 system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--fg)}
+a{color:var(--acc)}header,main,footer{max-width:1080px;margin:0 auto;padding:0 20px}
+header{display:flex;align-items:center;justify-content:space-between;padding-top:18px;gap:10px;flex-wrap:wrap}
+.brand{display:flex;gap:10px;align-items:center;font-weight:800;font-size:18px;color:var(--fg);text-decoration:none}.brand img{width:30px;height:30px}
+nav a{color:var(--mut);margin-left:14px;text-decoration:none;font-size:14px}
+h1{font-size:clamp(28px,4.4vw,44px);line-height:1.15;margin:36px 0 10px}h1 span{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--mut);max-width:760px;margin:0 0 24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 2px 10px #7c4dff0d}
+.app{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}@media(max-width:860px){.app{grid-template-columns:1fr}}
+label,.lbl{display:block;font-size:13px;color:var(--mut);margin:12px 0 6px;font-weight:600}
+input,select,textarea{width:100%;padding:9px 10px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--fg);font:inherit;font-size:14px}
+.chk{display:flex;gap:8px;align-items:flex-start;font-size:14px;color:var(--fg);font-weight:400}.chk input{width:auto;margin-top:4px}
+#refprev{max-width:120px;max-height:120px;border-radius:10px;border:1px solid var(--line);margin-top:8px;background:#fff}
+.chips{display:flex;gap:8px;flex-wrap:wrap}.chips button{padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer;font:inherit;font-size:14px}
+.chips button.on{border-color:var(--acc);background:#efe8ff;color:#4b23c2;font-weight:700}
+.packs{display:flex;gap:8px;flex-wrap:wrap}.packs label{display:flex;gap:6px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:0;color:var(--fg);font-weight:500}.packs input{width:auto}.packs .soon{opacity:.55}
+.rows{max-height:430px;overflow:auto;border:1px solid var(--line);border-radius:12px;padding:6px}
+.row{display:grid;grid-template-columns:26px 1fr 92px 86px;gap:6px;align-items:center;padding:4px 0;border-bottom:1px dashed var(--line)}.row:last-child{border:0}
+.row .n{font-size:12px;color:var(--mut)}.row .pose{grid-column:2/5;font-size:12px;color:var(--mut);padding:5px 8px}
+.row input,.row select{padding:6px 7px;font-size:13px}
+.go{margin-top:16px;width:100%;padding:13px;border:0;border-radius:12px;background:linear-gradient(90deg,var(--acc),var(--acc2));color:#fff;font-weight:800;font-size:16px;cursor:pointer}.go:disabled{opacity:.6;cursor:wait}
+.alt{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;font-size:14px;align-items:center}.alt button,.alt label,.dl button{padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:#fff;cursor:pointer;font:inherit;font-size:14px;margin:0;color:var(--fg);font-weight:500}
+.alt input[type=file]{display:none}
+.msg{font-size:14px;color:var(--mut);margin:10px 0;min-height:1.2em}.err{color:#c62828}
+.spin{width:28px;height:28px;border:4px solid #e2d8ff;border-top-color:var(--acc);border-radius:50%;animation:s 1s linear infinite;display:inline-block;vertical-align:middle}@keyframes s{to{transform:rotate(360deg)}}
+.checker{background-color:#fff;background-image:linear-gradient(45deg,#f1edf8 25%,transparent 25%),linear-gradient(-45deg,#f1edf8 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#f1edf8 75%),linear-gradient(-45deg,transparent 75%,#f1edf8 75%);background-size:20px 20px;background-position:0 0,0 10px,10px -10px,-10px 0}
+.gifs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;border-radius:12px;padding:8px}@media(max-width:520px){.gifs{grid-template-columns:repeat(3,1fr)}}
+.gifs figure{margin:0;text-align:center}.gifs img{width:100%;height:auto;image-rendering:auto}.gifs figcaption{font-size:12px;color:var(--mut)}.gifs .bad figcaption{color:#c62828}
+.dl{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.note{font-size:13px;color:var(--mut)}.warn{background:#fff6e5;border:1px solid #f3d9a4;border-radius:12px;padding:10px 14px;font-size:14px;color:#6b4e00;margin:14px 0}
+section{margin:52px 0}h2{font-size:26px;margin:0 0 14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}@media(max-width:820px){.grid3{grid-template-columns:1fr}}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}summary{cursor:pointer;font-weight:700}
+.strip{display:flex;gap:8px;overflow:auto;padding:6px;border-radius:12px}.strip img{width:110px;height:110px;flex:none}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;border-radius:12px;padding:8px}.gal figure{margin:0;text-align:center}.gal img{width:100%;height:auto}.gal figcaption{font-size:12px;color:var(--mut)}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 20px 40px;color:var(--mut);font-size:14px}footer div{margin:6px 0}
+.badges{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:14px 0}.badges img{height:40px;width:auto}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "GIF 表情包 AI", "url": "https://gif-sticker-pack-ai.bgnwd15.workers.dev/zh/", "applicationCategory": "MultimediaApplication", "operatingSystem": "Web", "inLanguage": "zh-CN", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "免费吗？", "acceptedAnswer": {"@type": "Answer", "text": "16 个一套的表情包免费，每位访客每天有少量次数。48 个和 100 个的大包即将推出。"}}, {"@type": "Question", "name": "可以上传什么角色？", "acceptedAnswer": {"@type": "Answer", "text": "只能上传你自己创作或已获授权的角色。不要上传他人受版权或商标保护的角色，也不要未经同意上传真人照片。"}}, {"@type": "Question", "name": "为什么文字不让 AI 画？", "acceptedAnswer": {"@type": "Answer", "text": "图像模型经常写错字。先画无字动作、再由浏览器加字，文字清晰，而且改字不用重新生成。"}}, {"@type": "Question", "name": "GIF 是透明背景吗？", "acceptedAnswer": {"@type": "Answer", "text": "是的。每个 GIF 使用一套共享调色板加透明色，帧处置为“恢复背景”，无限循环，在深色和浅色聊天背景上都干净。"}}, {"@type": "Question", "name": "能直接上传微信表情开放平台吗？", "acceptedAnswer": {"@type": "Answer", "text": "320×320、约 2 秒循环的 GIF 是常见表情规格，但微信等平台会按自己的规则审核，我们不保证能通过审核。"}}, {"@type": "Question", "name": "需要多久？", "acceptedAnswer": {"@type": "Answer", "text": "AI 画图集通常 1–3 分钟（排队高峰可能 5 分钟以上），浏览器渲染 16 个 GIF 只要几秒。"}}, {"@type": "Question", "name": "用的是什么模型？", "acceptedAnswer": {"@type": "Answer", "text": "目前通过 TryAllAPI 使用 GPT Images 2.6 Flare（图生图或文生图、透明 PNG 图集），浏览器再切成带字的 GIF。"}}]}</script>
+</head>
+<body>
+<header><a class="brand" href="/zh/"><img src="/favicon.svg" alt="" width="30" height="30">GIF 表情包 AI</a>
+<nav><a href="/zh/#how">怎么用</a><a href="/gallery/">示例画廊</a><a href="/zh/#faq">常见问题</a><a href="/" hreflang="en">English</a></nav></header>
+<main>
+  <h1>微信表情包生成：一张角色图做出 <span>一整套 GIF 表情包</span></h1>
+  <p class="lead">上传你有权使用的角色，选择聊天场景模板并修改配字。AI 在一张透明图上画出 16 个不带文字的动作；你的浏览器负责切图、加描边文字和动作效果，导出 320×320、约 2 秒循环的透明 GIF，可单张下载或整包 ZIP。</p>
+  <div class="app">
+    <form class="card" id="f" autocomplete="off">
+      <h2 style="font-size:18px;margin:0">1 · 你的角色</h2>
+      <label for="ref">角色图（PNG/JPG/WebP，透明背景 PNG 效果最好）</label>
+      <input type="file" id="ref" accept="image/png,image/jpeg,image/webp">
+      <img id="refprev" alt="" hidden>
+      <label for="character">…或用文字描述（有图时可不填）</label>
+      <input id="character" maxlength="200" placeholder="例如：胖乎乎的橘猫少女，头上别着绿叶发卡">
+      <label for="style">画风</label>
+      <select id="style"><option value="keep">保持参考图画风</option><option value="pixel">Q 版像素风</option><option value="cartoon">扁平卡通</option></select>
+      <label class="chk"><input type="checkbox" id="rights"><span>我是这个角色的作者或已获授权使用。我不会上传他人受版权/商标保护的角色，也不会未经同意上传真人照片。</span></label>
+      <h2 style="font-size:18px;margin:22px 0 0">2 · 模板、配字与动作</h2>
+      <span class="lbl">聊天场景模板</span>
+      <div class="chips" id="tpls"></div>
+      <p class="note">文字由浏览器添加，不是 AI 画的，可随时修改并免费重新渲染。</p>
+      <div class="rows" id="rows"></div>
+      <span class="lbl">表情包数量</span>
+      <div class="packs"><label><input type="radio" name="pack" value="16" checked>16 个 — 免费</label><label class="soon"><input type="radio" name="pack" value="48" disabled>48 个 — 即将推出</label><label class="soon"><input type="radio" name="pack" value="100" disabled>100 个 — 即将推出</label></div>
+      <label class="chk"><input type="checkbox" id="smooth"><span>平滑缩放（非像素画风建议勾选）</span></label>
+      <button class="go" id="go">生成我的 16 个表情包</button>
+      <p class="note">每天免费次数有限，生成失败会自动退回次数。 <span id="left"></span></p>
+      <div class="alt">不想上传？<button type="button" id="demo">试试示例图集</button><label>上传我自己的 4×4 图集 PNG<input type="file" id="own" accept="image/png"></label></div>
+    </form>
+    <div class="card">
+      <h2 style="font-size:18px;margin:0">3 · 你的表情包</h2>
+      <p class="msg" id="msg" aria-live="polite"></p><span class="spin" id="spin" hidden></span>
+      <div id="out" hidden>
+        <div class="gifs checker" id="gifs"></div>
+        <div class="dl"><button type="button" id="rerender">按新文字重新渲染</button><button type="button" id="zip">下载整包 ZIP</button><button type="button" id="atlasdl">下载图集 PNG</button><button type="button" id="video">预览视频（MP4/WebM）</button></div>
+      </div>
+      <div class="warn">导出为 320×320 透明 GIF，每次循环约 2 秒，是常见的表情尺寸；但微信等各平台都会按自身规则审核投稿，我们不承诺任何表情包能通过审核。</div>
+      <div class="strip checker" aria-label="samples"><img src="/samples/whale-maid/01-greetings/001.gif" alt="你好呀" loading="lazy" width="110" height="110"><img src="/samples/whale-maid/01-greetings/002.gif" alt="早安" loading="lazy" width="110" height="110"><img src="/samples/whale-maid/01-greetings/003.gif" alt="晚安" loading="lazy" width="110" height="110"><img src="/samples/whale-maid/01-greetings/004.gif" alt="请多关照" loading="lazy" width="110" height="110"><img src="/samples/whale-maid/01-greetings/005.gif" alt="欢迎呀" loading="lazy" width="110" height="110"><img src="/samples/whale-maid/01-greetings/006.gif" alt="谢谢你" loading="lazy" width="110" height="110"><img src="/samples/whale-maid/01-greetings/007.gif" alt="对不起" loading="lazy" width="110" height="110"><img src="/samples/whale-maid/01-greetings/008.gif" alt="好哒" loading="lazy" width="110" height="110"><img src="/samples/pixel-secretary/01-replies/001.gif" alt="马上来" loading="lazy" width="110" height="110"><img src="/samples/pixel-secretary/01-replies/002.gif" alt="看到了" loading="lazy" width="110" height="110"><img src="/samples/pixel-secretary/01-replies/003.gif" alt="没问题" loading="lazy" width="110" height="110"><img src="/samples/pixel-secretary/01-replies/004.gif" alt="我在" loading="lazy" width="110" height="110"><img src="/samples/pixel-secretary/01-replies/005.gif" alt="等我一下" loading="lazy" width="110" height="110"><img src="/samples/pixel-secretary/01-replies/006.gif" alt="稍等" loading="lazy" width="110" height="110"><img src="/samples/pixel-secretary/01-replies/007.gif" alt="继续说" loading="lazy" width="110" height="110"><img src="/samples/pixel-secretary/01-replies/008.gif" alt="懂了" loading="lazy" width="110" height="110"></div>
+    </div>
+  </div>
+  <section id="how"><h2>怎么用</h2><div class="grid3"><div class="card"><h3>一张图集，16 个动作</h3><p class="note">模型拿到你的角色图和模板里的 16 个动作描述，一次画出 4×4 透明精灵图集，不含文字——一次生成，角色更一致。</p></div><div class="card"><h3>浏览器里加字和动作</h3><p class="note">自动识别网格缝隙切图，每张加描边文字、小图标和 16 种动作预设之一（点头、跳跃、摇摆、发抖……），24 帧 × 80 毫秒。</p></div><div class="card"><h3>整包导出</h3><p class="note">单张下载 GIF，或下载整包 ZIP（GIF 文件夹 + 离线浏览页 + 图集），也可以录一段预览视频分享。</p></div></div></section>
+  <section id="samples"><h2>示例表情包</h2><p>用原开源导出器（MIT）制作的两套表情：大肥鱼和像素小秘书。<a href="/gallery/">查看全部 200 个 GIF →</a></p></section>
+  <section id="faq"><h2>FAQ</h2><details><summary>免费吗？</summary><p>16 个一套的表情包免费，每位访客每天有少量次数。48 个和 100 个的大包即将推出。</p></details><details><summary>可以上传什么角色？</summary><p>只能上传你自己创作或已获授权的角色。不要上传他人受版权或商标保护的角色，也不要未经同意上传真人照片。</p></details><details><summary>为什么文字不让 AI 画？</summary><p>图像模型经常写错字。先画无字动作、再由浏览器加字，文字清晰，而且改字不用重新生成。</p></details><details><summary>GIF 是透明背景吗？</summary><p>是的。每个 GIF 使用一套共享调色板加透明色，帧处置为“恢复背景”，无限循环，在深色和浅色聊天背景上都干净。</p></details><details><summary>能直接上传微信表情开放平台吗？</summary><p>320×320、约 2 秒循环的 GIF 是常见表情规格，但微信等平台会按自己的规则审核，我们不保证能通过审核。</p></details><details><summary>需要多久？</summary><p>AI 画图集通常 1–3 分钟（排队高峰可能 5 分钟以上），浏览器渲染 16 个 GIF 只要几秒。</p></details><details><summary>用的是什么模型？</summary><p>目前通过 TryAllAPI 使用 GPT Images 2.6 Flare（图生图或文生图、透明 PNG 图集），浏览器再切成带字的 GIF。</p></details></section>
+</main>
+<footer>
+  <div>本站为独立工具。目前由 <a href="https://tryallapi.com/?aff=5A6A" rel="noopener">TryAllAPI</a> 上的 GPT Images 2.6 生成透明图集；切图、加字、动作和 GIF 编码在你的浏览器里完成。与 OpenAI、微信/腾讯无关联。</div>
+  <div>导出器移植自 <a href="https://github.com/WoYun520/pixel-gif-sticker-pack" rel="noopener">pixel-gif-sticker-pack</a>（MIT 许可，© 2026 WoYun520），示例画廊的 GIF 也来自该项目。<a href="/licenses.txt">许可证与第三方声明</a></div>
+  <div>更多：<a href="https://gptimage2.asia/models/gpt-images-2.6" rel="noopener">GPT Images 2.6 model page</a> · <a href="https://maynor996.github.io/images-2-6-svg-gif-guide/" rel="noopener">Images 2.6 SVG &amp; GIF guide</a> · <a href="https://svg-logo-ai.bgnwd15.workers.dev/" rel="noopener">SVG Logo AI</a> · <a href="https://trymodel.chat/" rel="noopener">TryModel Chat</a></div>
+  <div class="badges">
+    <a href="https://findaifor.me/?utm_source=gif-sticker-pack-ai&amp;utm_medium=badge&amp;utm_campaign=footer" target="_blank" rel="noopener"><img src="https://findaifor.me/badge/featured.svg" alt="Featured on FindAIForMe" loading="lazy" height="40"></a>
+    <a href="https://showmebest.ai" target="_blank" rel="noopener"><img src="https://showmebest.ai/badge/feature-badge-dark.webp" alt="Featured on ShowMeBestAI" loading="lazy" height="40"></a>
+  </div>
+  <div>© 2026 GIF Sticker Pack AI · <a href="/sitemap.xml">Sitemap</a></div>
+</footer>
+<script src="/js/jszip.min.js" defer></script>
+<script type="module" src="/app.js"></script>
+</body>
+</html>
