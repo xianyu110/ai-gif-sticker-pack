@@ -2,7 +2,7 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://analytics.momoai.asia; connect-src 'self' data: blob: https://in.momoai.asia https://analytics.momoai.asia; img-src 'self' data: blob: https://findaifor.me https://showmebest.ai; media-src 'self' blob:; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://analytics.momoai.asia; connect-src 'self' data: blob: https://in.momoai.asia https://analytics.momoai.asia; img-src 'self' data: blob: https://findaifor.me; media-src 'self' blob:; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
 
 /samples/*
   Cache-Control: public, max-age=604800
